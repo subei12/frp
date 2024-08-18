@@ -165,6 +165,13 @@ func Convert_ServerCommonConf_To_v1(conf *ServerCommonConf) *v1.ServerConfig {
 	}
 
 	out.AllowPorts, _ = types.NewPortsRangeSliceFromString(conf.AllowPortsStr)
+
+	out.MySQLServer.Host = conf.MySQLHost
+	out.MySQLServer.Port = conf.MySQLPort
+	out.MySQLServer.User = conf.MySQLUser
+	out.MySQLServer.Password = conf.MySQLPassword
+	out.MySQLServer.Database = conf.MySQLDBName
+
 	return out
 }
 

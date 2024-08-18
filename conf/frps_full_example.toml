@@ -151,6 +151,14 @@ natholeAnalysisDataReserveHours = 168
 # sshTunnelGateway.autoGenPrivateKeyPath = ""
 # sshTunnelGateway.authorizedKeysFile = "/home/frp-user/.ssh/authorized_keys"
 
+# Daily traffic persistence； 每日流量持久化，仅入库、仅支持 mysql
+# mySQLServer.host = "xx.xx.xx.xx"
+# mySQLServer.port = 3306
+# mySQLServer.user = "username"
+# mySQLServer.password = "password"
+# mySQLServer.database = "database"
+
+
 [[httpPlugins]]
 name = "user-manager"
 addr = "127.0.0.1:9000"

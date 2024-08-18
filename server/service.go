@@ -19,6 +19,7 @@ import (
 	"context"
 	"crypto/tls"
 	"fmt"
+	"github.com/fatedier/frp/pkg/db"
 	"io"
 	"net"
 	"net/http"
@@ -323,6 +324,11 @@ func NewService(cfg *v1.ServerConfig) (*Service, error) {
 		if err != nil {
 			return nil, fmt.Errorf("create vhost httpsMuxer error, %v", err)
 		}
+	}
+
+	// mysql config
+	if cfg.MySQLServer.Port > 0 {
+		db.InitDB(cfg.MySQLServer)
 	}
 
 	// frp tls listener

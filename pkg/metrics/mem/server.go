@@ -15,6 +15,7 @@
 package mem
 
 import (
+	"github.com/fatedier/frp/pkg/db"
 	"sync"
 	"time"
 
@@ -167,6 +168,7 @@ func (m *serverMetrics) AddTrafficIn(name string, _ string, trafficBytes int64) 
 	if ok {
 		proxyStats.TrafficIn.Inc(trafficBytes)
 		m.info.ProxyStatistics[name] = proxyStats
+		db.LogDailyTraffic(name, proxyStats.ProxyType, "in", trafficBytes)
 	}
 }
 
@@ -180,6 +182,7 @@ func (m *serverMetrics) AddTrafficOut(name string, _ string, trafficBytes int64)
 	if ok {
 		proxyStats.TrafficOut.Inc(trafficBytes)
 		m.info.ProxyStatistics[name] = proxyStats
+		db.LogDailyTraffic(name, proxyStats.ProxyType, "out", trafficBytes)
 	}
 }
 

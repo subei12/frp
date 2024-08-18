@@ -198,6 +198,13 @@ type ServerCommonConf struct {
 	PprofEnable bool `ini:"pprof_enable" json:"pprof_enable"`
 	// NatHoleAnalysisDataReserveHours specifies the hours to reserve nat hole analysis data.
 	NatHoleAnalysisDataReserveHours int64 `ini:"nat_hole_analysis_data_reserve_hours" json:"nat_hole_analysis_data_reserve_hours"`
+
+	// MySQL's configuration fields
+	MySQLHost     string `ini:"host" json:"host"`
+	MySQLPort     int    `ini:"port" json:"port"`
+	MySQLUser     string `ini:"user" json:"user"`
+	MySQLPassword string `ini:"password" json:"password"`
+	MySQLDBName   string `ini:"database" json:"database"`
 }
 
 // GetDefaultServerConf returns a server configuration with reasonable defaults.

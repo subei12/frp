@@ -134,3 +134,16 @@ type HTTPHeader struct {
 	Name  string `json:"name"`
 	Value string `json:"value"`
 }
+
+type MySQLServerConfig struct {
+	// Addr specifies the network address of the MySQL server.
+	Host string `json:"host,omitempty"`
+	// Port specifies the port number that MySQL server is listening on.
+	Port int `json:"port,omitempty"`
+	// User specifies the username used to connect to the MySQL server.
+	User string `json:"user,omitempty"`
+	// Password specifies the password used to connect to the MySQL server.
+	Password string `json:"password,omitempty"`
+	// Database specifies the name of the MySQL database to connect to.
+	Database string `json:"database,omitempty"`
+}
